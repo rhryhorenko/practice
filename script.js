@@ -102,14 +102,10 @@
  */
 
 
-
-
-
-
 // Code challenge
 var questions = [];
 
-questions.push(new Question('Is JavaScript is coolest language?', ['Yes', 'No'], 0));
+questions.push(new Question('Is JavaScript is the coolest language?', ['Yes', 'No'], 0));
 questions.push(new Question('What is my name?', ['Evgeniy', 'Alex', 'Rodion'], 2));
 questions.push(new Question('Will I be a programmer?', ['No', 'Yes', 'Sure'], 2));
 
@@ -119,8 +115,19 @@ function Question(question, answer, correctAnswer) {
     this.correctAnswer = correctAnswer;
     this.printQuestion = function (arr) {
         var index = (Math.round(Math.random() * (arr.length - 1)));
-        console.log(arr[index].question + '\n' + arr[index].answer);
+        console.log(arr[index].question);
+        for (var i = 0; i < arr[index].answer.length; i++) {
+            console.log(i + ' ' + arr[index].answer[i]);
+        }
+        var userAnswer = prompt('Enter your answer: ')
+        if ( userAnswer == arr[index].correctAnswer) {
+            console.log('You are absolutely right!');
+        }
+        else {
+            console.log('Hui')
+        }
     }
+
 }
 
 questions[0].printQuestion(questions);
